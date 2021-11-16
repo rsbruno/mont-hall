@@ -130,12 +130,12 @@ async function nextRound() {
     //primeira rodada
     case 1:
       msg.innerText = "Estamos escolhendo uma porta para abrir!";
-      const response = await updateClock(1);
+      const response = await updateClock(4);
       if (response === "ready") {
         randomDoor = randomNewDoor();
         doorsOpen.push(randomDoor);
         msg.innerText = `Vamos abrir a porta número: ${randomDoor + 1}`;
-        const open = await updateClock(1);
+        const open = await updateClock(4);
         if (open === "ready") {
           openDoor(randomDoor);
           msg.innerText = `A porta número ${randomDoor + 1} foi aberta!`;
@@ -215,5 +215,6 @@ function resetAll() {
   }
   resetDoors()
   msg.innerText = ""
+  buttonNextStep.innerText = "Proxima Rodada";
   
 }
