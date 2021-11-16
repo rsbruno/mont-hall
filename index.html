@@ -5,56 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Html</title>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Monty Hall - Tente a Sorte</title>
 </head>
 
 <body>
-    <input type="text" placeholder="opção" id="opcao">
-    <button onclick="pronto()">escolhi</button>
+    <div class="container__modal" id="modal">
+        <div class="content__modal">
+            <h1 class="content__modal--title">Problema de Monty Hall</h1>
+            <p class="content__modal--paragraph">
+                Você está em um jogo em um programa de TV,
+                e precisa escolher uma entre três portas: por
+                trás de uma está um carro, e nas duas outras, cabras. Você escolhe um delas e pode 
+                ganhar um dos dois prêmios.
+            </p>
+            <button class="btn btn__success" onclick="closeModal()">Quero Tentar</button>
+        </div>
 
-    <div>
-        <span id="0">fechado</span>
-        <span id="1">fechado</span>
-        <span id="2">fechado</span>
     </div>
+    <section class="sec__main">
+        <div class="info">
+            <h1 id="doorSelected">Clique em uma das portas para selecionar</h1>
+            <h6 class="h6__round">Rodada: <strong id="round"></strong></h6>
+        </div>
+        <div class="content__doors">
+            <button class="door" onclick="selectDoor(this)" value="0" id="button#0">
+                <img alt="porta" id="0">
+            </button>
+            <button class="door" onclick="selectDoor(this)" value="1" id="button#1">
+                <img alt="porta" id="1">
+            </button>
+            <button class="door" onclick="selectDoor(this)" value="2" id="button#2">
+                <img alt="porta" id="2">
+            </button>
+        </div>
+        <div class="content_message">
+            <h2 class="menssagem" id="menssagem"></h2>
+            <div class="clock hide" id="content__clock">
+                <img src="./assets/clock.png" alt="">
+                <span id="clock">00:03</span>
+            </div>
+        </div>
+        <div>
+            <button onclick="nextRound()" class="btn btn__info btn__blocked" id="nextRound">Proxima Rodada</button>
+            <!-- <button class="btn btn__warning">Recomeçar</button> -->
+            <button class="btn btn__danger hide" id="button" onclick="resetDoors(false)">Escolher Denovo</button>
+        </div>
+    </section>
+
 </body>
 
-<script>
-
-    const premios = ["bode", "bode", "bode"];
-    let escolhido = ""
-
-    function randomIntFromInterval(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min)
-    }
-
-    premios[randomIntFromInterval(0, 2)] = "carro"
-
-    function abre(port) {
-        const html = document.getElementById(`${port}`)
-        html.innerHTML = premios[port]
-    }
-
-    let rodada = 1
-
-    const pronto = () => {
-        const op = ((document.getElementById("opcao").value))
-        if (op && !isNaN(op)) {
-            let n = parseInt(op)
-            escolhido = premios[n]
-            if (rodada === 1) {
-                let rd = randomIntFromInterval(0, 2)
-                while (rd === n || premios[rd] === "carro") {
-                    rd = randomIntFromInterval(0, 2)
-                }
-                abre(rd)
-                rodada++
-            }else{
-                abre(n)
-            }
-        }
-    }
-
-</script>
+<script src="./index.js" defer></script>
 
 </html>

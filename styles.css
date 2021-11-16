@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,900;1,400&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+.sec__main {
+    width: 100%;
+    height: 100vh;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info,
+.content__doors {
+    display: flex;
+    margin: 0 auto;
+}
+
+.info {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.h6__round {
+    background: #22bb33;
+    padding: 12px 35px;
+    border-radius: 5000px;
+    color: #fff;
+    font-size: 1rem;
+    margin: 16px 0;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.h6__round #round {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.door {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: ease 800ms;
+}
+
+.door:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.door:active:not([disabled]) {
+    transform: scale(0.9);
+}
+
+.door .img__goat {
+    position: absolute;
+    width: 10vw;
+}
+
+.content_message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8vh 0 10px 0;
+}
+
+.menssagem {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.clock {
+    background: #bb2124;
+    color: #fff;
+    padding: 8px 32px;
+    border-radius: 5000px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock img {
+    margin-right: 8px;
+}
+
+.btn {
+    padding: 8px 32px;
+    border-radius: 3px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+    transition: ease 400ms;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+.btn__blocked {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.btn__info {
+    background: #5bc0de;
+    color: #000;
+}
+
+.btn__warning {
+    background: #f0ad4e;
+    color: #000;
+}
+.btn__danger {
+    background: #bb2124;
+    color: #fff;
+}
+.btn__success {
+    background: #22bb33;
+    color: #fff;
+}
+
+.hide {
+    display: none;
+}
+
+.change__image--up {
+    transition: ease 400ms;
+    transform: rotateY(90deg);
+}
+
+.change__image--down {
+    transition: ease 200ms;
+    transform: rotateY(180deg);
+}
+
+.container__modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content__modal {
+    max-width: 60%;
+    background: #fff;
+    padding: 10vh 5vw;
+    border-radius: 8px;
+}
+
+.content__modal--title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.content__modal--paragraph {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    margin: 5vh 0;
+    text-indent: 2vw;
+}
+
+.modal__hide {
+    opacity: 0;
+    transition: ease 400ms;
+}
+
+.modal__toEnd{
+    transform: translateX(100vw);
+    transition: ease 400ms;
+}
+
+.modal__show {
+    opacity: 1;
+    transition: ease 400ms;
+}
+
+.modal__toStart{
+    transform: translateX(0);
+    transition: ease 400ms;
+}
