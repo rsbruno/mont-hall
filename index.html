@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Html</title>
+</head>
+
+<body>
+    <input type="text" placeholder="opção" id="opcao">
+    <button onclick="pronto()">escolhi</button>
+
+    <div>
+        <span id="0">fechado</span>
+        <span id="1">fechado</span>
+        <span id="2">fechado</span>
+    </div>
+</body>
+
+<script>
+
+    const premios = ["bode", "bode", "bode"];
+    let escolhido = ""
+
+    function randomIntFromInterval(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    premios[randomIntFromInterval(0, 2)] = "carro"
+
+    function abre(port) {
+        const html = document.getElementById(`${port}`)
+        html.innerHTML = premios[port]
+    }
+
+    let rodada = 1
+
+    const pronto = () => {
+        const op = ((document.getElementById("opcao").value))
+        if (op && !isNaN(op)) {
+            let n = parseInt(op)
+            escolhido = premios[n]
+            if (rodada === 1) {
+                let rd = randomIntFromInterval(0, 2)
+                while (rd === n || premios[rd] === "carro") {
+                    rd = randomIntFromInterval(0, 2)
+                }
+                abre(rd)
+                rodada++
+            }else{
+                abre(n)
+            }
+        }
+    }
+
+</script>
+
+</html>
